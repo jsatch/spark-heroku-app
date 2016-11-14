@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/* pe.edu.ulima.ejemploapp.Main
+web: java -cp target/EjemploApp-1.0-SNAPSHOT-jar-with-dependencies.jar pe.edu.ulima.ejemploapp.Main
