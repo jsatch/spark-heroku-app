@@ -1,1 +1,2 @@
-web: java -jar EjemploApp-1.0-SNAPSHOT-jar-with-dependencies.jar
+web: java -cp EjemploApp-1.0-SNAPSHOT.jar pe.edu.ulima.ejemploapp.Main
+
