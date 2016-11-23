@@ -1,6 +1,11 @@
 
 package pe.edu.ulima.ejemploapp;
 
+import com.google.gson.Gson;
+import java.util.List;
+import pe.edu.ulima.ejemploapp.beans.Evaluacion;
+import pe.edu.ulima.ejemploapp.dao.EvaluacionDAO;
+import pe.edu.ulima.ejemploapp.dto.EvaluacionesResponse;
 import spark.ModelAndView;
 import spark.Spark;
 import static spark.Spark.get;
@@ -21,7 +26,15 @@ public class Main {
 
             return new ModelAndView(null, "ejemplo.hbs");
         }, new HandlebarsTemplateEngine());
+        
+        get("/evaluaciones", (req, resp)->{
+            EvaluacionesResponse response = 
+                    new EvaluacionesResponse(new EvaluacionDAO().obtener());
+            return new Gson().toJson(response);
+        });
     }
+    
+    
     
     static int obtenerPuertoHeroku() {
         ProcessBuilder processBuilder = new ProcessBuilder();
