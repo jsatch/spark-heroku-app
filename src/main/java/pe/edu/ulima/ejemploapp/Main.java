@@ -28,10 +28,15 @@ public class Main {
         }, new HandlebarsTemplateEngine());
         
         get("/evaluaciones", (req, resp)->{
-            EvaluacionesResponse response = 
-                    new EvaluacionesResponse(new EvaluacionDAO().obtener());
-            return new Gson().toJson(response);
-        });
+            try{
+                EvaluacionesResponse response = 
+                        new EvaluacionesResponse(new EvaluacionDAO().obtener());
+                return new Gson().toJson(response);
+            }catch(Exception e){
+                return e.getMessage();
+            }
+            
+        } );
     }
     
     
