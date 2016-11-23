@@ -2,6 +2,7 @@
 package pe.edu.ulima.ejemploapp.dao;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import pe.edu.ulima.ejemploapp.beans.Evaluacion;
 public class EvaluacionDAO {
     private final MongoClient mClient;
     public EvaluacionDAO(){
-        mClient = new MongoClient(Parametros.URL_MONGODB);
+        mClient = new MongoClient(new MongoClientURI(Parametros.URL_MONGODB));
     }
     
     public List<Evaluacion> obtener(){
