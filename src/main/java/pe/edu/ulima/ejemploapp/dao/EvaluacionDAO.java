@@ -7,6 +7,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
 import java.util.List;
+import org.bson.Document;
 import pe.edu.ulima.ejemploapp.Parametros;
 import pe.edu.ulima.ejemploapp.beans.Evaluacion;
 
@@ -18,11 +19,20 @@ public class EvaluacionDAO {
     
     public List<Evaluacion> obtener(){
         MongoDatabase db = mClient.getDatabase("evaluaciones");
-        MongoCollection<Evaluacion> colEval = 
-                db.getCollection("evaluaciones", Evaluacion.class);
+        MongoCollection colEval = 
+                db.getCollection("evaluaciones");
         
-        List<Evaluacion> evaluaciones = 
-                colEval.find().into(new ArrayList<Evaluacion>());
+        List<Evaluacion> evaluaciones = new ArrayList<>();
+        ArrayList<Document> evalDocs = 
+                (ArrayList<Document>) colEval.find().into(new ArrayList());
+        evalDocs.stream().forEach((doc) -> {
+            evaluaciones.add(
+                    new Evaluacion(
+                            doc.getString("nombre"), 
+                            doc.getString("ciclo")
+                    )
+            );
+        });
         return evaluaciones;
                
     }
