@@ -7,7 +7,7 @@ var obtenerEvaluaciones = function () {
             '<div class="panel-body">'+
             '<div class="row">' +
               '<div class="col-md-3">'+
-                '<h4>' + eva.nommbre + '</h4>'+
+                '<h4>' + eva.nombre + '</h4>'+
                 '<h5>' + eva.ciclo +  ' </h5>'+
               '</div>'+
               '<div class="col-md-9">'+
