@@ -2,9 +2,6 @@
 package pe.edu.ulima.ejemploapp;
 
 import com.google.gson.Gson;
-import java.util.List;
-import pe.edu.ulima.ejemploapp.beans.Evaluacion;
-import pe.edu.ulima.ejemploapp.dao.EvaluacionDAO;
 import pe.edu.ulima.ejemploapp.dto.EvaluacionesResponse;
 import spark.ModelAndView;
 import spark.Spark;
@@ -28,9 +25,10 @@ public class Main {
         }, new HandlebarsTemplateEngine());
         
         get("/evaluaciones", (req, resp)->{
+            GestorEvaluaciones gestor = new GestorEvaluaciones();
             try{
                 EvaluacionesResponse response = 
-                        new EvaluacionesResponse(new EvaluacionDAO().obtener());
+                        new EvaluacionesResponse(gestor.obtenerEvaluaciones());
                 return new Gson().toJson(response);
             }catch(Exception e){
                 return e.getMessage();
