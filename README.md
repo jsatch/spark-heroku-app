@@ -7,4 +7,6 @@ Configurado para se utilizado en integración continua con Codeship.
 Solo para fines academicos.
 
 Hernan Quintana
-hquintan@ulima.edu.pe
+
+- @hquintana
+- hquintan@ulima.edu.pe
