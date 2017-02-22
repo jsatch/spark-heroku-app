@@ -4,7 +4,7 @@ Aplicación de ejemplo que está configurada para subir a HEROKU y funciona con 
 
 Configurado para se utilizado en integración continua con Codeship. 
 
-Solo para fines academicos.
+Solo para fines academicos. No debe utilizarse para temas de produccion.
 
 Hernan Quintana
 
